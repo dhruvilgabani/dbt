@@ -33,8 +33,8 @@ models:
     example:
       +materialized: view
 
-    Staging:
-      +materialized: tables
+    staging:
+      +materialized: table
 
     marts:
       +materialized: view
