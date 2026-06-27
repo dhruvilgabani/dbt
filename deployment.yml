@@ -18,19 +18,22 @@ jobs:
         command: dbt test # This example will run all your tests.
 
   - name: nightly
+    targetName: dev
     schedule: 0 0 * * * # This example will run every day at midnight.
     steps:
-      - name: run models
+      - name: run selected models
         command: dbt run --select stg_transactions daily_revenue # This example will run two specific models.
 
   - name: weekdays
+    targetName: dev
     schedule: 30 7 * * 1-5 # The example will run every weekday at 7:30am.
     steps:
       - name: run models
         command: dbt run
 
   - name: every30minutes
+    targetName: dev
     schedule: "*/30 * * * *" # The example will run every 30 minutes. Note that the cron string is quoted as otherwise it will be treated as invalid alias node (see https://yaml.org/spec/1.2/spec.html#*%20alias// for details)
     steps:
-      - name: version
-        command: dbt --version
+      - name: run models
+        command: dbt run

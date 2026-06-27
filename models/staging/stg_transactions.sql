@@ -1,4 +1,6 @@
-SELECT
+{{ config( materialized='table', schema='marts' )}}
+
+SELECT 
     transaction_id,
     customer_id,
     amount,
