@@ -1,8 +1,4 @@
-{{ config(
-    materialized='table',
-    schema='marts',
-    database='analytics'
-)}}
+{{ config( materialized='table', schema='marts', )}}
 
 SELECT
     transaction_date,
